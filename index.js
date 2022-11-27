@@ -1,13 +1,11 @@
-let usuario = prompt("Ingrese su nombre de usuario")
-    alert("Bienvenido " + usuario)
-    
-
 let btn = document.querySelector("#start");
 
 btn.addEventListener("click", () => alert("El juego ha comenzado")
 );
 
-//Componentes HTML
+
+
+///////////////////////////////////////COMPONENTES HTML///////////////////////////////////////
 
 const $ = (elemento) => document.getElementById(elemento);
 
@@ -15,9 +13,9 @@ const board = $("board");
 const scoreInfo = $("scoreInfo");
 const startButton = $("start");
 const gameOverSign = $("gameOver");
+const player =$("player");
 
-//Game
-
+//////////////////////////////////////////GAME//////////////////////////////////////////////////////
 const boardSize = 10;
 const gameSpeed = 300;
 const squareTypes = {
@@ -34,7 +32,7 @@ const directions = {
 };
 
 
-//Game variables
+/////////////////////////////////////////////GAME VARIABLES///////////////////////////////////////////
 
 let snake;
 let score;
@@ -42,6 +40,9 @@ let boardSquares;
 let emptySquares;
 let direction;
 let moveInterval;
+
+
+//////////////////////////////////////////////FUNCIONALIDAD////////////////////////////////////////////
 
 
 const createBoard = () =>{
@@ -60,9 +61,37 @@ const createBoard = () =>{
 
     )}
 
+let drawSquare = (square,type) =>{
+    const [row , column] = square.split("");
+    boardSquares[row][column] = squareTypes[type];
+    const squareElement = document.getElementById(square);
+    squareElement.setAttribute("class", `square ${type}`);
+    
+        if (type === "emptySquare"){
+            emptySquares.push(square);
+        } else {
+            if (emptySquares.indexOf(square) !== -1) {
+                emptySquares.splice(emptySquares.indexOf(square), 1); 
+            }
+        }
+    }
+
+
+
 let drawSnake = () =>{
     snake.forEach( square => drawSquare(square, "snakeSquare"));
 }
+
+const createRandomFood = () =>{
+    const randomEmptySquare = emptySquares[Math.floor(Math.random() * emptySquares.length)];
+    drawSquare(randomEmptySquare, "foodSquare");
+}
+
+
+const updateScore = () =>{
+    scoreInfo.innerText = score;
+}
+
 
 const addFood = () =>{
     score++;
@@ -71,9 +100,12 @@ const addFood = () =>{
     
 }
 
+const setDirection = newDirection =>{
+    direction = newDirection;
+ }
 
 
-const snakeMove = () =>{
+ const snakeMove = () =>{
     const newSquare = String(
         Number(snake[snake.length - 1]) + directions [direction])
         .padStart(2, '0');
@@ -98,16 +130,6 @@ const snakeMove = () =>{
 }
 
 
-const gameOver = () =>{
-    gameOverSign.style.display = "block";
-    clearInterval(moveInterval);
-    startButton.disabled = false;
-}
-
-const setDirection = newDirection =>{
-    direction = newDirection;
- }
-
 let keyDirection = key => {
     switch(key.code){
     
@@ -130,37 +152,16 @@ let keyDirection = key => {
  }
 } 
 
-const createRandomFood = () =>{
-    const randomEmptySquare = emptySquares[Math.floor(Math.random() * emptySquares.length)];
-    drawSquare(randomEmptySquare, "foodSquare");
-}
-
-const updateScore = () =>{
-    scoreInfo.innerText = score;
+const gameOver = () =>{
+    gameOverSign.style.display = "block";
+    clearInterval(moveInterval);
+    startButton.disabled = false;
 }
 
 
-let drawSquare = (square,type) =>{
-    const [row , column] = square.split("");
-    boardSquares[row][column] = squareTypes[type];
-    const squareElement = document.getElementById(square);
-    squareElement.setAttribute("class", `square ${type}`);
-
-    if (type === "emptySquare"){
-        emptySquares.push(square);
-    } else {
-        if (emptySquares.indexOf(square) !== -1) {
-            emptySquares.splice(emptySquares.indexOf(square), 1); 
-        }
-    }
-}
-
-// let snakeColor = () =>{
-
-// }
-    
 const gameSet = () => {
     snake = ["00", "01", "02", "03"];
+    player = prompt
     score = snake.length -4;
     direction = "ArrowRight";
     boardSquares = Array.from(Array(boardSize), () => new Array(boardSize).fill(squareTypes.emptySquare));
