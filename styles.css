@@ -106,6 +106,7 @@ h1{
     color: greenyellow;
     font-weight: lighter;
     margin-left: 20%;
+    margin-top: 10px;
     width: 100px;
     display: flex;
     align-items: center;
@@ -113,6 +114,9 @@ h1{
 
 #gameOver{
     margin-left: 200px;
+    font-size: 20px;
+    color: orangered;
+    height: 20px;
 }
 
 #gameOver{
