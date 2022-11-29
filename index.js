@@ -135,11 +135,11 @@ let keyDirection = key => {
     
         case "ArrowUp":
             direction != "ArrowDown" && setDirection(key.code);
-            console.log(keyDirection);
+        break;    
 
         case "ArrowDown":
             direction != "ArrowUp" && setDirection(key.code);
-            console.log(keyDirection);
+            
         break;
 
         case "ArrowRight":
