@@ -67,6 +67,9 @@ h1{
     background-color: white;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
+    background-color: #4b0082;
+    border: 2px solid white;
+    
     
 }
 
@@ -118,18 +121,22 @@ h1{
 
 .square{
     aspect-ratio: 1;
+    
 }
 
 .emptySquare{
-    background-color: black;
+    background-color: #4b0082;
 }
 
 .snakeSquare{
-    background-color: rgb(64, 255, 47);
+    background-color: #00ff7f;
+    border-radius: 20px;
+     
 }
 
 .foodSquare{
-    background-color: rgb(226, 43, 156);
+    background-color: rgb(147, 226, 43);
+    border-radius: 14px;
 }
 
 

@@ -161,7 +161,6 @@ const gameOver = () =>{
 
 const gameSet = () => {
     snake = ["00", "01", "02", "03"];
-    player = prompt
     score = snake.length -4;
     direction = "ArrowRight";
     boardSquares = Array.from(Array(boardSize), () => new Array(boardSize).fill(squareTypes.emptySquare));
