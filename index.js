@@ -14,6 +14,7 @@ const scoreInfo = $("scoreInfo");
 const startButton = $("start");
 const gameOverSign = $("gameOver");
 const player =$("player");
+const winSign =$("youWin");
 
 //////////////////////////////////////////GAME//////////////////////////////////////////////////////
 const boardSize = 10;
@@ -117,7 +118,8 @@ const setDirection = newDirection =>{
         (direction === "ArrowLeft" && column == 9 ||
         boardSquares[row][column] === squareTypes.snakeSquare) ){
             gameOver();
-        }else{
+        }
+        else{
             snake.push(newSquare);
             if (boardSquares[row][column] === squareTypes.foodSquare){ 
             addFood();
@@ -125,9 +127,16 @@ const setDirection = newDirection =>{
             const emptySquare = snake.shift();
             drawSquare(emptySquare, "emptySquare")
         }
+        
+        
         drawSnake();
 }
+    if(score === 5){
+        youWin();
+    }   
 }
+
+
 
 
 let keyDirection = key => {
@@ -150,7 +159,13 @@ let keyDirection = key => {
             direction != "ArrowRight" && setDirection(key.code);
         break;
  }
-} 
+}
+
+const youWin = () =>{
+    winSign.style.display = "block";
+    clearInterval(moveInterval);
+    startButton.disabled = false;
+}
 
 const gameOver = () =>{
     gameOverSign.style.display = "block";
@@ -178,6 +193,7 @@ const starGame = () => {
     gameSet();
     drawSnake();
     startButton.disabled = true;
+    winSign.style.display = "none";
     gameOverSign.style.display = "none";
     document.addEventListener("keydown", keyDirection);
     updateScore();
