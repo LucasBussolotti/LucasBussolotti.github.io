@@ -131,9 +131,16 @@ const setDirection = newDirection =>{
         
         drawSnake();
 }
-    if(score === 5){
+    if(score === 30){
         youWin();
     }   
+}
+
+const levelUp = () =>{
+    if(score==3){
+        gameSpeed - 100
+        
+    }
 }
 
 
@@ -198,6 +205,7 @@ const starGame = () => {
     document.addEventListener("keydown", keyDirection);
     updateScore();
     createRandomFood();
+    levelUp();
     moveInterval = setInterval( () => snakeMove(), gameSpeed);
     
 } 
