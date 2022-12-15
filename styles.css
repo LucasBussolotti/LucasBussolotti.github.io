@@ -175,3 +175,82 @@ h1{
     
 }
 
+/*--------------------------------------------SOBRE MI-----------------------------------------*/
+
+.sobreMi{
+    font-size: 20px;
+    color: white;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    margin-left: 35%;
+    
+    
+}
+
+.sobreMi p{
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+/*----------------------------------------------COMO JUGAR------------------------------------*/
+
+
+.comoJugar{
+    font-size: 20px;
+    color: white;
+    display: block; 
+}
+.comoJugar h2{
+    margin-top: 20px;
+    margin-left: 40%;
+}
+.comoJugar h3{
+    margin-top: 20px;
+    margin-left: 40%;
+}
+.comoJugar p{
+    margin-top: 10px;
+    margin-left: 10%;
+}
+
+
+
+/*------------------------------------FOOTER--------------------------------------*/
+
+.redes{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.icon{
+    color: white;
+}
+.bi-linkedin{
+    
+    color: #0077b5;
+    text-decoration: none;
+    margin-right: 30px;
+    margin-top: 100px;
+    font-size: 50px;
+    
+}
+
+.bi-github{
+    
+    color: black;
+    text-decoration: none;
+    margin-right: 30px;
+    margin-top: 100px;
+    font-size: 50px;
+}
+
+.bi-envelope-fill{
+    
+    color: black;
+    text-decoration: none;
+    margin-right: 30px;
+    margin-top: 100px;
+    font-size: 50px;
+}

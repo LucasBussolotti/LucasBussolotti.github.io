@@ -1,6 +1,14 @@
 let btn = document.querySelector("#start");
 
-btn.addEventListener("click", () => alert("El juego ha comenzado")
+btn.addEventListener("click", () => Swal.fire({
+    title: 'El juego ha comenzado!!!',
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    }
+  })
 );
 
 
@@ -131,17 +139,11 @@ const setDirection = newDirection =>{
         
         drawSnake();
 }
-    if(score === 30){
+    if(score === 10){
         youWin();
     }   
 }
 
-const levelUp = () =>{
-    if(score==3){
-        gameSpeed - 100
-        
-    }
-}
 
 
 
@@ -169,13 +171,29 @@ let keyDirection = key => {
 }
 
 const youWin = () =>{
-    winSign.style.display = "block";
+    Swal.fire({
+        title: 'YOU WIN!!!!!!',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
     clearInterval(moveInterval);
     startButton.disabled = false;
 }
 
 const gameOver = () =>{
-    gameOverSign.style.display = "block";
+    Swal.fire({
+        title: 'GAME OVER :(',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
     clearInterval(moveInterval);
     startButton.disabled = false;
 }
@@ -205,7 +223,6 @@ const starGame = () => {
     document.addEventListener("keydown", keyDirection);
     updateScore();
     createRandomFood();
-    levelUp();
     moveInterval = setInterval( () => snakeMove(), gameSpeed);
     
 } 
