@@ -1,15 +1,5 @@
 let btn = document.querySelector("#start");
 
-btn.addEventListener("click", () => Swal.fire({
-    title: 'El juego ha comenzado!!!',
-    showClass: {
-      popup: 'animate__animated animate__fadeInDown'
-    },
-    hideClass: {
-      popup: 'animate__animated animate__fadeOutUp'
-    }
-  })
-);
 
 
 
@@ -143,10 +133,6 @@ const setDirection = newDirection =>{
         youWin();
     }   
 }
-
-
-
-
 
 let keyDirection = key => {
     switch(key.code){
